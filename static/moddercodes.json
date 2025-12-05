@@ -1,0 +1,42 @@
+[
+    {
+        "name": "ModderID status codes",
+        "description": "You can check your api status codes with this json data of MMD (ModderMethod).",
+        "common_api_methods": "000, 001, 002, 003, 004, 005",
+        "common_api_urls": [
+            {
+                "url": "/api/basic",
+                "method": "GET",
+                "query-params": "mmd",
+                "queries":["create-api-key", "get_info"]
+            }
+        ],
+        "status_codes": [
+            {
+                "code": "000",
+                "description": "Unexpected error maybe with your browser or other server problems"
+            },
+            {
+                "code": "001",
+                "description": "Unauthorized - you need to sign up or login to your account for solve"
+        
+            },
+            {
+                "code": "002",
+                "description": "Unknown method of mmd (ModderMethod), please specify the mmd"
+            },
+            {
+                "code": "003",
+                "description": "Limit exceed of api key"
+            },
+            {
+                "code": "004",
+                "description": "Successfully created api key"
+            },
+            {
+                "code": "005",
+                "description": "Successfully worked api"
+            }
+        ]
+    }
+]
