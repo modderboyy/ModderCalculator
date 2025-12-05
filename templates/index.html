@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link href="{% static 'styles.css' %}" rel="stylesheet">
+    <title>MCalculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #loader-container { display: none; justify-content: center; margin-top: 10px; }
+        .loader-mini { transform: scale(0.6); }
+    </style>
+</head>
+<body>
+    <main class="login-card" style="width: 350px; padding: 40px; background: rgba(20,20,35,0.6); backdrop-filter: blur(30px); border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);">
+
+        <div>
+            <h1>Calculator</h1>
+        </div>
+
+        <div>
+            <input type="text" id="inp" disabled>
+        </div>
+
+        <div style="width: auto;">
+            <button onclick="add('1')">1</button>
+            <button onclick="add('2')">2</button>
+            <button onclick="add('3')">3</button>
+            <button onclick="add('+')">+</button>
+
+            <button onclick="add('4')">4</button>
+            <button onclick="add('5')">5</button>
+            <button onclick="add('6')">6</button>
+            <button onclick="add('-')">-</button>
+
+            <button onclick="add('7')">7</button>
+            <button onclick="add('8')">8</button>
+            <button onclick="add('9')">9</button>
+            <button onclick="add('*')">*</button>
+
+            <button onclick="clearInp()">C</button>
+            <button onclick="add('0')">0</button>
+            <button onclick="calc()">=</button>
+            <button onclick="add('/')">/</button>
+            <h1 onload="data">
+                
+            </h1>
+        </div>
+    </main>
+
+<script>
+    const data = []
+    const inp = document.getElementById("inp");
+
+    function add(val) {
+        inp.value += val;
+    }
+
+    function clearInp() {
+        inp.value = "";
+    }
+
+    function calc() {
+        try {
+            inp.value = eval(inp.value);
+        } catch {
+            inp.value = "Error";
+        }
+        data.push(inp.value, eval(inp.value))
+        console.log(data)
+        
+    }
+</script>
+
+</body>
+</html>
